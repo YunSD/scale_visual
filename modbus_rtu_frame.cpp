@@ -32,7 +32,7 @@ public:
         unsigned int len = 1 + 1 + 1 + data.size();
         unsigned char* frame = new unsigned char[len];
 
-        int index;
+        int index = 0;
 
         frame[index++] = addr;
         frame[index++] = funcCode;
@@ -89,10 +89,14 @@ public:
 
 
     bool receive(asio::serial_port& port, ModbusRTURespondFrame &response){
-        const int max_response_length = MAX_MESSAGE_LENGTH;
+        const int max_response_length = 8;
         unsigned char buf[max_response_length];
         // read all
-        asio::read(port, asio::buffer(buf),asio::transfer_all()); 
+        asio::error_code ec;
+
+        int a;
+
+        asio::read(port, asio::buffer(buf));
 
         //spdlog::info("Async message #{}", buf);
         response.init(buf);
@@ -108,3 +112,40 @@ private:
 };
 
 
+//asio::io_service io;
+//asio::serial_port port(io, "COM1");
+//port.set_option(asio::serial_port_base::baud_rate(9600));
+//port.set_option(asio::serial_port_base::character_size(8));
+//port.set_option(asio::serial_port_base::stop_bits(asio::serial_port_base::stop_bits::one));
+//port.set_option(asio::serial_port_base::parity(asio::serial_port_base::parity::none));
+////uint8_t a[] = { 0x01, 0x03, 0x00, 0x00, 0x00, 0x0a };
+////uint16_t crc = CRC16_CALCULATE(a, sizeof(a));
+////std::cout << std::hex << crc;
+//
+////std::vector<unsigned char> bytes;
+////bytes.push_back(0x01);
+////bytes.push_back(0x03);
+////bytes.push_back((0x0000 >> 8) & 0xFF);
+////bytes.push_back(0x0000 & 0xFF);
+////bytes.push_back((0x000a >> 8) & 0xFF);
+////bytes.push_back(0x000a & 0xFF);
+////uint16_t crc1 = CRC16_CALCULATE(bytes);
+////std::cout << std::hex << crc1;
+//ModbusRTUFrame frame(0x01, 0x03, 0x0000, 0x000a);
+//frame.send(port);
+//ModbusRTURespondFrame respond;
+//frame.receive(port, respond);
+//std::cout << respond.crc;
+////asio::read(port, asio::buffer(buf));
+////std::vector<unsigned char> bytes = frame.toBytes();
+////for (int i = 0; i < bytes.size(); i++) {
+////    std::cout << std::hex << (int)bytes[i];
+////}
+//
+////std::cout << std::hex << frame.toBytes();
+//////int bytes[10];
+//////bytes[1] = 12;
+//////asio::write(port, asio::buffer(bytes));
+////unsigned char buf[100];
+////asio::read(port, asio::buffer(buf));
+////std::cout << buf;

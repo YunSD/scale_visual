@@ -24,9 +24,45 @@
     <ClCompile Include="crc16.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="modbus.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="modbus-data.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="modbus-rtu.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="modbus-tcp.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="crc16.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="modbus.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="modbus-version.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="config.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="modbus-private.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="modbus-rtu.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="modbus-rtu-private.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="modbus-tcp.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="modbus-tcp-private.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

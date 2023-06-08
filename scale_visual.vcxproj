@@ -70,6 +70,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LibraryPath>C:\Users\zzz\Desktop\code\win\scale_visual\dll;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LibraryPath>C:\Users\zzz\Desktop\code\win\scale_visual\dll;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -132,11 +138,23 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="crc16.cpp" />
+    <ClCompile Include="modbus-data.cpp" />
+    <ClCompile Include="modbus-rtu.cpp" />
+    <ClCompile Include="modbus-tcp.cpp" />
+    <ClCompile Include="modbus.cpp" />
     <ClCompile Include="modbus_rtu_frame.cpp" />
     <ClCompile Include="scale_visual.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="config.hpp" />
     <ClInclude Include="crc16.hpp" />
+    <ClInclude Include="modbus-private.hpp" />
+    <ClInclude Include="modbus-rtu-private.hpp" />
+    <ClInclude Include="modbus-rtu.hpp" />
+    <ClInclude Include="modbus-tcp-private.hpp" />
+    <ClInclude Include="modbus-tcp.hpp" />
+    <ClInclude Include="modbus-version.h" />
+    <ClInclude Include="modbus.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
